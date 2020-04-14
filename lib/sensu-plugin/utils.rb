@@ -84,8 +84,8 @@ module Sensu
 
           ##
           # Set the client.address to the first non-loopback address
-	  # The Go event IP addresses include the CDIR range on the end
-	  # of the IP, so it needs to be split off 192.168.0.1/24 -> 192.168.0.1
+          # The Go event IP addresses include the CDIR range on the end
+          # of the IP, so it needs to be split off 192.168.0.1/24 -> 192.168.0.1
           ##
           event['entity']['system']['network']['interfaces'].each do |interface|
             next if interface['addresses'].include? '127.0.0.1/8'
