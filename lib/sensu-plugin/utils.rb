@@ -56,7 +56,7 @@ module Sensu
       #      will be set to true as a hint to indicate this is a mapped event object.
       #
       ##
-      def map_go_event_into_ruby(orig_event = nil, map_annotation = nil)
+      def map_go_event_into_ruby(orig_event = nil, map_annotation = nil) # rubocop:disable Metrics/AbcSize
         orig_event ||= @event
 
         map_annotation ||= ENV['SENSU_MAP_ANNOTATION'] if ENV['SENSU_MAP_ANNOTATION']
@@ -81,6 +81,17 @@ module Sensu
           ##
 
           event['client']['subscribers'] ||= event['entity']['subscriptions']
+
+          ##
+          # Set the client.address to the first non-loopback address
+	  # The Go event IP addresses include the CDIR range on the end
+	  # of the IP, so it needs to be split off 192.168.0.1/24 -> 192.168.0.1
+          ##
+          event['entity']['system']['network']['interfaces'].each do |interface|
+            next if interface['addresses'].include? '127.0.0.1/8'
+            event['client']['address'] = interface['addresses'][0].split('/')[0]
+            break
+          end
 
           ##
           #  Map entity metadata into client attributes

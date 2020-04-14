@@ -12,7 +12,6 @@ Gem::Specification.new do |s|
   s.summary               = 'Sensu Plugins'
   s.description           = 'Plugins and helper libraries for Sensu, a monitoring framework'
   s.license               = 'MIT'
-  s.has_rdoc              = false
   s.require_paths         = ['lib']
   s.executables           = Dir.glob('bin/**/*.rb').map { |file| File.basename(file) }
   s.files                 = Dir.glob('{bin,lib}/**/*')

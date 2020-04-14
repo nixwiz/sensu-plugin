@@ -4,6 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+- In map_go_eventy_into_ruby, add setting client.address to first non-loopback IP in the entity
+
 ### [4.0.0] - 2018-02-17
 ### Breaking Changes
 - remove support for EOL ruby `< 2.3` as they are EOL (@majormoses)
