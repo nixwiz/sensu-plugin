@@ -6,7 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 - In map_go_eventy_into_ruby, add setting client.address to first non-loopback IP in the entity
-- Removed has_rdoc in the gemspec to get ride of superfluous warnings
+- Removed has_rdoc in the gemspec to get rid of superfluous warnings
 
 ### [4.0.0] - 2018-02-17
 ### Breaking Changes
